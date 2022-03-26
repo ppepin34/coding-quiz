@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Coding Quiz</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="open-high-scores">View High Scores</a>
+        <div class="timer">Time:<span class="time"></span></div>
+    </header>
+    <main>
+        <!-- opening page-->
+        <div class="splash">
+            <div>
+                <h1>Coding Quiz</h1>
+            </div>
+            <div>
+                <p>
+                    Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+                </p>
+            </div>
+            <button class="menu-button" id="start-quiz">Start Quiz</button>
+        </div>
+
+        <!-- Quiz page -->
+        <div class="quiz hidden">
+            <div class="question hidden">
+                <h2>Placeholder</h2>
+            </div>
+            <div class="answers">
+                <button class="answer-button">Placeholder 1</button>
+                <button class="answer-button">Placeholder 2</button>
+                <button class="answer-button">Placeholder 3</button>
+                <button class="answer-button">Placeholder 4</button>
+            </div>
+            <footer></footer>
+        </div>
+
+        <!-- Score form -->
+        <div class="score-page hidden">
+            <h2>Well done!</h2>
+            <div class="final-score">Your final score is:<span id="final-score"></span></div>
+            <form class="score-form">
+                <label for="score">Enter your initials:</label>
+                <input type="text" name="score" id="score">
+                <button class="menu-button" id="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- High scores -->
+        <div class="high-scores hidden">
+            <h2>High Scores!</h2>
+            <ol></ol>
+            <div class="buttons">
+                <button class="menu-button" id="go-back">Go Back</button>
+                <button class="menu-button" id="clear-scores">Clear High Scores</button>
+            </div>
+        </div>
+    </main>
+    
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

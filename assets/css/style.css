@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* header styling */
+
+header {
+    display: flex;
+    flex: auto;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+header a {
+    color: darkslategray;
+}
+
+/* main body styling */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* buttons other than quiz */
+
+.menu-button {
+    background-color: darkslategray;
+    color: ivory;
+    border-radius:  5px;
+}
+
+/* headers other than splash */
+h2 {
+    font-size: 36px;
+}
+/* splash styling */
+.splash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    width: 50%;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 800;
+}
+
+.splash p {
+    text-align: center;
+    margin: 10px;
+}
+
+#start-quiz {
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+}
+
+/* quiz styling */
+.quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    transform: translate();
+}
+
+.quiz h2 {
+    align-self: center;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    margin:5px
+}
+
+.answer-button {
+    margin: 5px;
+    background-color: darkslategrey;
+    color:ivory;
+    border-radius: 5px;
+    width: 125px;
+}
+
+.quiz footer {
+    border-top: 5px solid lightgray;
+}
+
+/* score page */
+.score-page {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+/* high scores */
+.high-scores {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.hidden {
+    display: none;
+}
