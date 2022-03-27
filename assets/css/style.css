@@ -38,7 +38,7 @@ h2 {
     font-size: 36px;
 }
 /* splash styling */
-.splash {
+.visible {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -48,12 +48,16 @@ h2 {
     width: 50%;
 }
 
+.hidden {
+    display: none;
+}
+
 h1 {
     font-size: 48px;
     font-weight: 800;
 }
 
-.splash p {
+#splash p {
     text-align: center;
     margin: 10px;
 }
@@ -65,17 +69,7 @@ h1 {
 }
 
 /* quiz styling */
-.quiz {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: absolute;
-    width: 50%;
-    top: 50%;
-    transform: translate();
-}
-
-.quiz h2 {
+#quiz h2 {
     align-self: center;
 }
 
@@ -93,7 +87,7 @@ h1 {
     width: 125px;
 }
 
-.quiz footer {
+#quiz footer {
     border-top: 5px solid lightgray;
 }
 

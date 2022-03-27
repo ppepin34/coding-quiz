@@ -11,11 +11,11 @@
     <!-- Header -->
     <header>
         <a href="open-high-scores">View High Scores</a>
-        <div class="timer">Time:<span class="time"></span></div>
+        <div class="timer">Time:<span id="time"></span></div>
     </header>
     <main>
         <!-- opening page-->
-        <div class="splash">
+        <div class="visible" id="splash">
             <div>
                 <h1>Coding Quiz</h1>
             </div>
@@ -28,17 +28,12 @@
         </div>
 
         <!-- Quiz page -->
-        <div class="quiz hidden">
-            <div class="question hidden">
-                <h2>Placeholder</h2>
+        <div class="hidden" id="quiz">
+            <div class="question">
             </div>
-            <div class="answers">
-                <button class="answer-button">Placeholder 1</button>
-                <button class="answer-button">Placeholder 2</button>
-                <button class="answer-button">Placeholder 3</button>
-                <button class="answer-button">Placeholder 4</button>
-            </div>
-            <footer></footer>
+            <ol class="answers">
+            </ol>
+            <footer class="footer"></footer>
         </div>
 
         <!-- Score form -->
