@@ -69,10 +69,6 @@ h1 {
 }
 
 /* quiz styling */
-#quiz h2 {
-    align-self: center;
-}
-
 .answers {
     display: flex;
     flex-direction: column;
@@ -92,11 +88,7 @@ h1 {
 }
 
 /* score page */
-.score-page {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
+
 
 /* high scores */
 .high-scores {

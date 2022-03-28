@@ -2,24 +2,28 @@
 var time = document.getElementById("time");
 var timeLeft = "";
 var highScores = [];
-// var answerButton = document.getElementsByClassName("answer-button")
+var i = 1;
+console.log(i);
 
-//timer
+var timeInterval = setInterval(function () {
+    if (timeLeft > 0) {
+        time.innerHTML = timeLeft;
+        timeLeft--;
+    } else {
+        time.innerHTML = 0;
+        clearInterval(timeInterval);
+        endQuiz();
+    };
+}, 1000)
+
+//timer start
 var timer = function () {
     timeLeft = 74;
 
     //runs var timeLeft through countdown
-    var timeInterval = setInterval(function () {
-        if (timeLeft > 0) {
-            time.innerHTML = timeLeft;
-            timeLeft--;
-        } else {
-            time.innerHTML = 0;
-            clearInterval(timeInterval);
-            //endQuiz();
-        };
-    }, 1000)
+    timeInterval();    
 }
+
 
 //beginning quiz
 var quizStart = function () {
@@ -29,19 +33,48 @@ var quizStart = function () {
     splash.classList.add("hidden");
     splash.classList.remove("visible");
 
-    var quiz = document.getElementById("quiz-1")
+    var quiz = document.getElementById("1")
     quiz.classList.remove("hidden");
     quiz.classList.add("visible");
 }
 
+// to get next question
+var newQuestion = function () {
+
+    console.log(i);
+
+    //define variable for this question by using i
+    id = i.toString();
+
+    var thisQuestion = document.getElementById(id);
+
+    //change current question to hidden
+    thisQuestion.classList.add("hidden");
+    thisQuestion.classList.remove("visible");
+
+    //iterate i
+    i++;
+
+    if (i > 5) {
+        endQuiz();
+        return;
+    }
+    else {
+        id = i.toString();
+        var nextQuestion = document.getElementById(id);
+        //change next question to visible
+        nextQuestion.classList.add("visible");
+        nextQuestion.classList.remove("hidden");
+    }
+};
+
 var answer = function () {
 
-    console.log(element.classList)
+    console.log("click")
     // right answer
-    if (element.classList == "correct") {
+    if (event.target.value === "correct") {
         //move to next question
         newQuestion();
-        footer.appendChild(correct);
     }
     else {
         // wrong answer
@@ -49,8 +82,7 @@ var answer = function () {
         timeLeft = timeLeft - 10;
 
         //move to next question
-        newQuestion
-        footer.appendChild(incorrect);
+        newQuestion();
 
         console.log(timeLeft);
     }
@@ -58,12 +90,40 @@ var answer = function () {
 }
 
 
-// what happens when you answer a question
-//document.getElementsByClassName("answers").addEventListener("click",answer)
-
 //end of quiz
 
-//function endQuiz()
+function endQuiz() {
+    // save timeLeft as a score
+    var score = timeLeft;
+    score.toString()
+
+    // hide question
+    // drop i to last question
+    i--;
+    id = i.toString();
+
+    var thisQuestion = document.getElementById(id);
+    console.log(thisQuestion);
+    thisQuestion.classList.add("hidden");
+    thisQuestion.classList.remove("visible");
+    // display form
+
+    var form = document.getElementById("form");
+    form.classList.add("visible");
+    form.classList.remove("hidden");
+
+    //display score 
+    var finalScore = document.getElementById("final-score");
+    finalScore.innerHTML(score);
+    //blank timeLeft
+    timeLeft = "";
+
+    //stop timer?
+    clearInterval(timeInterval);
+
+    //reset i
+    i = 1;
+}
 
 
 //save timer state
@@ -75,9 +135,10 @@ document.getElementById("start-quiz").addEventListener("click", () => {
     timer();
 });
 
-document.querySelectorAll("answer-button").forEach(element => {
-    element.addEventListener("click", answer(element.classList))
-});
+const answerButton = document.querySelectorAll(".answer-button");
+answerButton.forEach(answerButton =>
+    answerButton.addEventListener("click", answer)
+);
 //save scores
 //order high to low
 //maybe save top 10 only?
