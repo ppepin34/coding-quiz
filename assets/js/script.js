@@ -3,25 +3,31 @@ var time = document.getElementById("time");
 var timeLeft = "";
 var highScores = [];
 var i = 1;
-console.log(i);
-
-var timeInterval = setInterval(function () {
-    if (timeLeft > 0) {
-        time.innerHTML = timeLeft;
-        timeLeft--;
-    } else {
-        time.innerHTML = 0;
-        clearInterval(timeInterval);
-        endQuiz();
-    };
-}, 1000)
+const intialTime = 75;
 
 //timer start
 var timer = function () {
-    timeLeft = 74;
+    timeLeft = intialTime - 1;
 
     //runs var timeLeft through countdown
-    timeInterval();    
+    var timeInterval = setInterval(function () {
+        //if timer has time left tick down
+        if (timeLeft > 0) {
+            time.innerHTML = timeLeft;
+            timeLeft--;
+        //if time runs out, stop timer, go to endQuiz
+        } else if (timeLeft == 0) {
+            time.innerHTML = 0;
+            clearInterval(timeInterval);
+            i++;
+            endQuiz();
+            console.log("b")
+        //if the quiz is finished before time runs out and timeLeft is set to blank, stop the interval
+        } else {
+            clearInterval(timeInterval);
+            console.log("c")
+        };
+    }, 1000);    
 }
 
 
@@ -36,12 +42,12 @@ var quizStart = function () {
     var quiz = document.getElementById("1")
     quiz.classList.remove("hidden");
     quiz.classList.add("visible");
+
+    time.innerHTML = intialTime;
 }
 
 // to get next question
 var newQuestion = function () {
-
-    console.log(i);
 
     //define variable for this question by using i
     id = i.toString();
@@ -69,8 +75,6 @@ var newQuestion = function () {
 };
 
 var answer = function () {
-
-    console.log("click")
     // right answer
     if (event.target.value === "correct") {
         //move to next question
@@ -83,8 +87,6 @@ var answer = function () {
 
         //move to next question
         newQuestion();
-
-        console.log(timeLeft);
     }
 
 }
@@ -92,10 +94,10 @@ var answer = function () {
 
 //end of quiz
 
-function endQuiz() {
+var endQuiz = function () {
     // save timeLeft as a score
+    console.log ("calling")
     var score = timeLeft;
-    score.toString()
 
     // hide question
     // drop i to last question
@@ -103,7 +105,6 @@ function endQuiz() {
     id = i.toString();
 
     var thisQuestion = document.getElementById(id);
-    console.log(thisQuestion);
     thisQuestion.classList.add("hidden");
     thisQuestion.classList.remove("visible");
     // display form
@@ -113,23 +114,15 @@ function endQuiz() {
     form.classList.remove("hidden");
 
     //display score 
-    var finalScore = document.getElementById("final-score");
-    finalScore.innerHTML(score);
+    document.getElementById("final-score").innerHTML = score;
     //blank timeLeft
     timeLeft = "";
-
-    //stop timer?
-    clearInterval(timeInterval);
 
     //reset i
     i = 1;
 }
 
-
-//save timer state
-//form for saving scores
-
-//event listeners--- these go somewhere
+//event listeners
 document.getElementById("start-quiz").addEventListener("click", () => {
     quizStart();
     timer();
