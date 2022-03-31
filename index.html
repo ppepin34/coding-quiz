@@ -10,7 +10,6 @@
 <body>
     <!-- Header -->
     <header>
-        <a href="open-high-scores">View High Scores</a>
         <div class="timer">Time:<span id="time"></span></div>
     </header>
     <main>
@@ -90,15 +89,18 @@
             <div class="final-score">Your final score is:<span id="final-score"></span></div>
             <form class="score-form">
                 <label for="score">Enter your initials:</label>
-                <input type="text" name="score" id="score">
+                <input type="text" name="initials" id="initials">
                 <button class="menu-button" id="submit">Submit</button>
             </form>
         </div>
 
         <!-- High scores -->
-        <div class="high-scores hidden">
+        <div class="hidden" id="high-scores">
             <h2>High Scores!</h2>
-            <ol></ol>
+            <ol id="list">
+                <li>test-55</li>
+                <li>test-55</li>
+            </ol>
             <div class="buttons">
                 <button class="menu-button" id="go-back">Go Back</button>
                 <button class="menu-button" id="clear-scores">Clear High Scores</button>
